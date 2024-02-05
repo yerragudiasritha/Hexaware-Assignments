@@ -1,8 +1,6 @@
 from bean.Events import Event
 import random
 from datetime import date
-
-
 class Booking(Event):
 
     def __init__(self, event, customer):
@@ -12,8 +10,6 @@ class Booking(Event):
         self.num_tickets = len(customer)
         self.total_cost = 0
         self.booking_date = date.today()
-
-
     def calculate_booking_cost(self, num_tickets):
         pass
 
