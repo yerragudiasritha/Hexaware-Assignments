@@ -1,7 +1,5 @@
 from mysql import connector
 import mysql
-
-
 class DBUtil:
     def __init__(self):
         self.con = mysql.connector.connect(
@@ -11,6 +9,5 @@ class DBUtil:
             password="root",
             database="ticketbookingsystem"
         )
-
-    def getDBConnection(self):
+ def getDBConnection(self):
         return self.con.cursor()
