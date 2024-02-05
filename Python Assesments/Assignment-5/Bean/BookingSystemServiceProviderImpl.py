@@ -1,7 +1,5 @@
 from Service.IBookingSystemServiceProvider import IBookingSystemServiceProvider
 from datetime import date
-
-
 class BookingSystemServiceProviderImpl(IBookingSystemServiceProvider):
     def __init__(self, dbUtil):
         self.dbUtil = dbUtil
@@ -10,10 +8,10 @@ class BookingSystemServiceProviderImpl(IBookingSystemServiceProvider):
         pass
 
     def book_tickets(self, num_tickets):
-        print("Please enter customer details so we can assure booking : ")
-        customer_name = input("First please enter your name : ")
-        customer_email = input("Please enter you email : ")
-        customer_phone = input("Please enter your phone number : ")
+        print("Enter customer details for booking : ")
+        customer_name = input("Enter your name : ")
+        customer_email = input("Enter you email : ")
+        customer_phone = input("Enter your mobile number : ")
         cursor = self.dbUtil.getDBConnection()
         cursor.execute("insert into customer(customer_name,email,phone_number) values (%s,%s,%s)",
                        (customer_name, customer_email, customer_phone,))
@@ -49,7 +47,5 @@ class BookingSystemServiceProviderImpl(IBookingSystemServiceProvider):
         cursor.execute(query, (booking_id,))
         self.dbUtil.con.commit()
         print("Your booking is cancelled successfully.")
-
-
     def get_booking_details(self, booking_id):
         pass
